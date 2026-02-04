@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Robot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Palettiseur Connecté Sécurisé</h1>
+    </header>
+
+    <div class="dashboard-container">
+        
+        <section id="action" class="panel">
+            <div class="panel-header">
+                <h2>1. Action Commander</h2>
+            </div>
+            
+            <div class="action-content">
+                <button id="btn-ouvrir-pop">Ouvrir les Scénarios</button>
+
+                <div class="api-status-bar">
+                    <div class="api-icon" title="Interface API REST Sécurisée">
+                        <span class="api-text" id="api-label">GATEWAY API ACTIVE</span>
+                        <div class="api-dot"></div>
+                    </div>
+                </div>
+
+                <button id="btn-urgence" class="danger">ARRÊT D'URGENCE</button>
+            </div>
+        </section>
+
+        <section id="vision" class="panel">
+            <div class="panel-header">
+                <h2>2. Vision Superviseur</h2>
+            </div>
+            <div class="data-box">
+                <p>État : <span id="robot-status">Connecté</span></p>
+                <p>Position : <span id="pos">X:0 Y:0 Z:0</span></p>
+                <p>Température : <span id="temp-val">25</span>°C</p>
+                
+                <div class="graph-container">
+                    <canvas id="tempChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="retour" class="panel">
+            <div class="panel-header">
+                <h2>3. Retour d'information</h2>
+            </div>
+            <div id="log-window"></div>
+        </section>
+        
+    </div>
+
+    <div id="ma-modale" class="pop-up">
+        <div class="pop-content">
+            <span class="fermer">&times;</span>
+            <h3>Sélectionner un Scénario</h3>
+            <div class="liste-boutons">
+                <button onclick="lancer('Empilage')">📦 Empilage</button>
+                <button onclick="lancer('Tri')">🔍 Tri Sélectif</button>
+                <button onclick="lancer('Rangement')">🏗️ Rangement</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
